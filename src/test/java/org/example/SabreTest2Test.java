@@ -1,5 +1,7 @@
 package org.example;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +21,12 @@ class SabreTest2Test {
     @Test
     void test_convertListToMap() {
         sabreTest2.convertListToMap(getEmployees()).forEach((k, v) -> System.out.println(k + " : " + v));
+    }
+
+    @Test
+    void test_getNonRepeatingCharacter() {
+        String str = sabreTest2.getNonRepeatingCharacter("aabbddcmmks");
+        assertThat(str).isEqualTo("c");
     }
 
     private List<Employee> getEmployees() {
