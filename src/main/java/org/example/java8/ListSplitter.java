@@ -6,10 +6,10 @@ import java.util.stream.IntStream;
 public class ListSplitter {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(1, 4, 3, 6, 8, 9, 4, 2, 2, 0);
-        spliter(numbers, 3).forEach(System.out::println);
+        splitter(numbers, 3).forEach(System.out::println);
     }
 
-    private static List<List<Integer>> spliter(List<Integer> numbers, int i) {
+    private static List<List<Integer>> splitter(List<Integer> numbers, int i) {
         return IntStream.iterate(0, n -> n < numbers.size(), n -> n + i)
                 .mapToObj(n -> numbers.subList(n, Math.min(n + i, numbers.size())))
                 .toList();
