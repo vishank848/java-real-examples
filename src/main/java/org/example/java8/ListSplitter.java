@@ -5,8 +5,10 @@ import java.util.stream.IntStream;
 
 public class ListSplitter {
     public static void main(String[] args) {
-        List<Integer> numbers = List.of(1, 4, 3, 6, 8, 9, 4, 2, 2, 0);
+        List<Integer> numbers = List.of(3, 4, 3, 6, 8, 9, 4, 2, 2, 0);
         splitter(numbers, 3).forEach(System.out::println);
+        Integer i = numbers.stream().sorted().skip(1).findFirst().orElse(null);
+        System.out.println(i);
     }
 
     private static List<List<Integer>> splitter(List<Integer> numbers, int i) {

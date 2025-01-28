@@ -17,7 +17,8 @@ public class SabreTest2 {
     // name as key and salary as value
 
     public List<Employee> getTopNEmployees(List<Employee> employees, int n) {
-        return employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(n).collect(Collectors.toList());
+        return employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .limit(n).collect(Collectors.toList());
     }
 
     public Map<String, Integer> convertListToMap(List<Employee> employees) {
@@ -26,17 +27,17 @@ public class SabreTest2 {
 
     public String getNonRepeatingCharacter(String str) {
         str.chars().mapToObj(i -> Character.toLowerCase((char) i))
-            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-            .entrySet().stream()
-            .filter(entry -> entry.getValue() == 1)
-            .map(Map.Entry::getKey)
-            .findFirst().get();
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst().get();
         return Arrays.stream(str.split(""))
-            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-            .entrySet().stream()
-            .filter(stringLongEntry -> stringLongEntry.getValue() == 1)
-            .map(Map.Entry::getKey)
-            .findFirst().get();
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream()
+                .filter(stringLongEntry -> stringLongEntry.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .findFirst().get();
     }
 
 
